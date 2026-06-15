@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="mobile-screen">
+
+    <div class="text-center mb-5">
+
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             alt="Smart Coffee"
+             class="auth-image mb-4">
+
+        <h2 class="fw-bold">
+            Create Account
+        </h2>
+
+        <p class="text-secondary">
+            Join Smart Coffee today
+        </p>
+
+    </div>
+
+    <!-- 🔥 مهم: يرسل إلى Action POST Register في AuthController -->
+    <form asp-controller="Auth"
+          asp-action="Register"
+          method="post">
+
+        <div class="mb-3">
+            <input name="fullName" class="form-control" placeholder="Full Name" />
+        </div>
+
+        <div class="mb-3">
+            <input name="email" class="form-control" placeholder="Email Address" />
+        </div>
+
+        <div class="mb-3">
+            <input name="phoneNumber" class="form-control" placeholder="Phone Number" />
+        </div>
+
+        <div class="mb-4">
+            <input name="password" type="password" class="form-control" placeholder="Password" />
+        </div>
+
+        <button type="submit" class="primary-btn">
+            Create Account
+        </button>
+
+    </form>
+
+    <div class="text-center mt-4">
+        Already have an account?
+
+        <a asp-controller="Auth"
+               asp-action="Login"
+               class="text-success text-decoration-none">
+            Login
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,270 @@
+:root {
+    --primary: #52C788;
+    --primary-light: #EAF8F1;
+    --text: #1E293B;
+    --muted: #64748B;
+    --bg: #FFFFFF;
+    --border: #E5E7EB;
+}
+
+body {
+    background: var(--bg);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.mobile-screen {
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Images */
+
+.onboarding-image {
+    width: min(60vw, 220px);
+    height: min(60vw, 220px);
+    object-fit: cover;
+    border-radius: 40px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.auth-image {
+    width: min(55vw,180px);
+    height: min(55vw,180px);
+    object-fit: cover;
+    border-radius: 40px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* Buttons */
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    height: 54px;
+    width: 100%;
+    font-weight: 600;
+    transition: .3s;
+}
+
+    .primary-btn:hover {
+        background: #47b87a;
+        color: white;
+    }
+
+.secondary-btn {
+    background: #F6F7F8;
+    color: var(--text);
+    border: none;
+    border-radius: 16px;
+    height: 54px;
+    width: 100%;
+}
+
+/* Cards */
+
+.card-soft {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid #EEF2F3;
+    padding: 20px;
+}
+
+/* Inputs */
+
+.form-control {
+    height: 54px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 .15rem rgba(82,199,136,.15);
+    }
+
+/* Social Icons */
+
+.fa-google {
+    color: #DB4437;
+}
+
+.fa-apple {
+    color: #000;
+}
+
+/* Tablet */
+
+@media (min-width:768px) {
+
+    .mobile-screen {
+        max-width: 450px;
+        margin: auto;
+    }
+}
+
+/* Desktop */
+
+@media (min-width:1200px) {
+
+    .mobile-screen {
+        max-width: 500px;
+    }
+}
+
+@media (min-width:992px) {
+
+    .auth-image {
+        width: 220px;
+        height: 220px;
+    }
+}
+.dashboard-container {
+    padding: 24px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    background: #FAFBFC;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.avatar-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.subscription-card {
+    background: linear-gradient( 135deg, #52C788, #3FB972 );
+    color: white;
+    padding: 24px;
+    border-radius: 28px;
+    margin-bottom: 20px;
+}
+
+.badge-plan {
+    background: rgba(255,255,255,.20);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.custom-progress {
+    height: 10px;
+    border-radius: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 24px;
+    text-align: center;
+    padding: 24px;
+}
+
+    .stat-card h4 {
+        color: #52C788;
+        margin-bottom: 5px;
+    }
+
+.section-title {
+    margin: 20px 0 15px;
+}
+
+.quick-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .quick-card i {
+        color: #52C788;
+        font-size: 22px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+.activity-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+    .activity-item i {
+        color: #52C788;
+        font-size: 18px;
+    }
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    z-index: 100;
+}
+
+    .bottom-nav a {
+        color: #94A3B8;
+        font-size: 20px;
+    }
+
+    .bottom-nav .active {
+        color: #52C788;
+    }
+@media(min-width:992px) {
+
+    .dashboard-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px;
+    }
+
+    .subscription-card {
+        padding: 35px;
+    }
+
+    .quick-card {
+        transition: .3s;
+    }
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+        }
+}

@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="mobile-screen">
+
+    <div class="text-center mb-5">
+
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             alt="Smart Coffee"
+             class="auth-image mb-4">
+
+        <h2 class="fw-bold">
+            Welcome Back
+        </h2>
+
+        <p class="text-secondary">
+            Login to continue
+        </p>
+
+    </div>
+
+    <!-- 🔴 عرض الخطأ -->
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger text-center">
+            @ViewBag.Error
+        </div>
+    }
+
+    <form asp-controller="Auth"
+          asp-action="Login"
+          method="post">
+
+        <div class="mb-3">
+            <input name="email"
+                   class="form-control"
+                   placeholder="Email or Phone" />
+        </div>
+
+        <div class="mb-3">
+            <input name="password"
+                   type="password"
+                   class="form-control"
+                   placeholder="Password" />
+        </div>
+
+        <div class="text-end mb-4">
+            <a asp-controller="Auth"
+                   asp-action="ForgotPassword"
+                   class="text-success text-decoration-none">
+                Forgot Password?
+            </a>
+        </div>
+
+        <button type="submit"
+                class="primary-btn mb-4">
+            Login
+        </button>
+
+    </form>
+
+    <div class="text-center mb-4">
+        <span class="text-secondary">
+            Or continue with
+        </span>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-6">
+            <button type="button" class="secondary-btn">
+                <i class="fab fa-google"></i>
+                Google
+            </button>
+        </div>
+
+        <div class="col-6">
+            <button type="button" class="secondary-btn">
+                <i class="fab fa-apple"></i>
+                Apple
+            </button>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        Don't have an account?
+        <a asp-controller="Auth"
+               asp-action="Register"
+               class="text-success text-decoration-none">
+            Create Account
+        </a>
+    </div>
+
+</div>

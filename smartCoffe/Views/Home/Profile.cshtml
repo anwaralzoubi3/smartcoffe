@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_Layout";
+}
+
+<div class="dashboard-container">
+
+    <div class="text-center mb-4">
+
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             class="avatar-img mb-3">
+
+        <h3>@Model.FullName</h3>
+
+        <p class="text-muted">
+            @Model.Email
+        </p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+
+        <p><strong>Subscription:</strong> Premium</p>
+
+        <p><strong>Points:</strong> 450</p>
+
+    </div>
+
+    <!-- Logout Button -->
+    <div class="mt-4">
+
+        <form asp-controller="Auth"
+              asp-action="Logout"
+              method="post">
+
+            <button type="submit"
+                    class="btn btn-danger w-100">
+                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

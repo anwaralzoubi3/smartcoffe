@@ -1,0 +1,216 @@
+﻿@model WebApplication1.Models.User
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="dashboard-container">
+
+    <!-- Header -->
+    <div class="dashboard-header">
+
+        <div>
+            <small class="text-muted">
+                Welcome Back
+            </small>
+
+            <h3 class="fw-bold m-0">
+                @Model.FullName
+            </h3>
+
+            <small class="text-muted">
+                @Model.Email
+            </small>
+        </div>
+
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             class="avatar-img"
+             alt="Smart Coffee" />
+
+    </div>
+
+    <!-- Subscription Card -->
+    <div class="subscription-card">
+
+        <div class="d-flex justify-content-between">
+
+            <div>
+
+                @if (ViewBag.Subscription != null)
+                {
+                    <span class="badge-plan">
+                        @ViewBag.Subscription.Plan.PlanName
+                    </span>
+                }
+                else
+                {
+                    <span class="badge-plan">
+                        NO ACTIVE PLAN
+                    </span>
+                }
+
+                <!-- 🔥 لاحقاً سنربطها بقاعدة البيانات -->
+                <h4 class="mt-3">
+                    @ViewBag.Remaining / @ViewBag.Limit Cups
+                </h4>
+
+                <p class="mb-0 opacity-75">
+                    Remaining this month
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-mug-hot fa-2x"></i>
+
+        </div>
+
+    </div>
+
+    <!-- Usage -->
+    <div class="dashboard-card">
+
+        <div class="d-flex justify-content-between mb-2">
+
+            <strong>Monthly Usage</strong>
+
+            <span>@ViewBag.Percentage%</span>
+
+        </div>
+
+        <div class="progress custom-progress">
+
+            <div class="progress-bar bg-success"
+                 style="width:@ViewBag.Percentage%"
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Statistics -->
+    <div class="row g-3 mt-1">
+
+        <div class="col-6">
+
+            <div class="stat-card">
+
+            <h4>@ViewBag.Used</h4>
+
+                <small>
+                    Cups Used
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="col-6">
+
+            <div class="stat-card">
+
+            <h4>@ViewBag.Remaining</h4>
+
+                <small>
+                    Remaining
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <h5 class="section-title">
+        Quick Actions
+    </h5>
+
+    <div class="row g-3">
+
+        <div class="col-6">
+            <a href="/Home/MyQr" class="text-decoration-none">
+                <div class="quick-card">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>My QR</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-6">
+            <a href="/Home/Plans" class="text-decoration-none">
+                <div class="quick-card">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Plans</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-6">
+            <a href="/Home/Rewards" class="text-decoration-none">
+                <div class="quick-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Rewards</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Activity -->
+    <h5 class="section-title">
+        Recent Activity
+    </h5>
+
+    <div class="dashboard-card">
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            <div>
+                <strong>Latte</strong>
+                <small class="d-block text-muted">
+                    Today 10:30 AM
+                </small>
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            <div>
+                <strong>Cappuccino</strong>
+                <small class="d-block text-muted">
+                    Yesterday
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+
+    <a href="/Home/Dashboard" class="active">
+        <i class="fa-solid fa-house"></i>
+    </a>
+
+    <a href="/Home/Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </a>
+
+    <a href="/Home/Notifications">
+        <i class="fa-solid fa-bell"></i>
+    </a>
+
+    <a href="/Home/Profile">
+        <i class="fa-solid fa-user"></i>
+    </a>
+
+</nav>

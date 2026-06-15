@@ -1,0 +1,65 @@
+﻿@model WebApplication1.Models.Plan
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="dashboard-container">
+
+    <h3 class="fw-bold mb-4">
+        Checkout
+    </h3>
+
+    <div class="dashboard-card">
+
+        <h4>@Model.PlanName</h4>
+
+        <p>@Model.CupsPerMonth Cups / Month</p>
+
+        <h2 class="text-success">
+            $@Model.Price
+        </h2>
+
+        <hr />
+
+        <!-- PayPal Button -->
+        <div id="paypal-button-container"></div>
+
+    </div>
+
+</div>
+
+<!-- PayPal SDK (Sandbox Mode) -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+
+    // إنشاء الطلب
+    createOrder: function (data, actions) {
+    return actions.order.create({
+    purchase_units: [{
+    amount: {
+    value: '@Model.Price'
+    }
+    }]
+    });
+    },
+
+    // عند نجاح الدفع
+    onApprove: function (data, actions) {
+    return actions.order.capture().then(function (details) {
+
+    // تحويل إلى صفحة النجاح (بدون planId لأننا نستخدم Session)
+    window.location.href = '/Payment/Success';
+
+    });
+    },
+
+    // عند الإلغاء (اختياري)
+    onCancel: function () {
+    window.location.href = '/Payment/Cancel';
+    }
+
+    }).render('#paypal-button-container');
+</script>

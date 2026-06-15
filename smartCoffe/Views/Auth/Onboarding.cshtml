@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="mobile-screen">
+
+    <div class="text-center mb-5">
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             alt="Smart Coffee"
+             class="onboarding-image">
+    </div>
+
+    <h2 class="fw-bold">
+        Smart Subscription
+    </h2>
+
+    <p class="text-secondary mb-4">
+        Manage your coffee subscription easily.
+    </p>
+
+    <div class="card-soft mb-3">
+        <i class="fa-solid fa-mug-hot text-success"></i>
+        Premium Coffee Plans
+    </div>
+
+    <div class="card-soft mb-3">
+        <i class="fa-solid fa-qrcode text-success"></i>
+        Easy QR Access
+    </div>
+
+    <div class="card-soft mb-5">
+        <i class="fa-solid fa-gift text-success"></i>
+        Rewards & Loyalty
+    </div>
+
+    <a asp-controller="Auth"
+           asp-action="CompleteOnboarding"
+           class="btn primary-btn">
+        Get Started
+    </a>
+
+</div>

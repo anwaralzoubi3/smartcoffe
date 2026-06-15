@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="mobile-screen">
+
+    <div class="text-center mb-5">
+
+        <img src="https://i.pinimg.com/736x/10/4d/e7/104de7788fa4cb20826564a976a347da.jpg"
+             alt="Smart Coffee"
+             class="auth-image">
+
+    </div>
+
+    <h2 class="fw-bold mb-4">
+        Welcome
+    </h2>
+
+    <a asp-controller="Auth"
+           asp-action="Login"
+           class="btn primary-btn mb-3">
+        Login
+    </a>
+
+    <a asp-controller="Auth"
+           asp-action="Register"
+           class="btn secondary-btn mb-3">
+        Create Account
+    </a>
+
+</div>
